@@ -1,10 +1,11 @@
-package Inheritance.ComplexNumbers;
+import java.util.Scanner;
+
 /**'Number' class
  *Declare a parameterised constructor in the Number class that will take the real and imaginary parts of a number as input.
  *The Number class should contain the getter and setter methods for getting and setting the real and imaginary parts of a number.
- *Create two more classes ‘NewPackage.Complex’ and ‘NewPackage.PurelyImaginary’.
- *Class NewPackage.Complex extends the Number class and checks if the input number is complex or not using checkComplex().
- The NewPackage.PurelyImaginary class inherits the NewPackage.Complex class and decides if the input number is purely imaginary
+ *Create two more classes ‘Complex’ and ‘PurelyImaginary’.
+ *Class 'Complex' extends the 'Number' class and checks if the input number is complex or not using checkComplex().
+ The 'PurelyImaginary' class inherits the 'Complex' class and decides if the input number is purely imaginary
  using checkPurelyImaginaryNumber().
 
  Input: Your program should take the following input:
@@ -32,8 +33,67 @@ package Inheritance.ComplexNumbers;
 /**
  * NewPackage.NumberClass
  */
+class Number{
+    double r,i;
+    //Parametric Constructor
+    Number(double real, double imaginary){
+        this.i= imaginary;
+        this.r= real;
+    }
+    // Setters
+    public void setR(double re) {
+        this.r = re;
+    }
+    public void setI(double im) {
+        this.i = im;
+    }
+    //Getters
+    public double getR() {
+        return r;
+    }
+    public double getI(){
+        return i;
+    }
+}
+class Complex extends Number{
+    Complex(double real,double imaginary){
+        super(real,imaginary);
+    }
+    void checkComplex() {
+        double n = getI();
+        if(n!=0){
+            System.out.println("The given number is complex");
+        }
+        else {
+            System.out.println("The given number is real");
+        }
+    }
+}
+class PurelyImaginary extends Complex{
+    PurelyImaginary(double real,double imaginary){
+        super(real, imaginary);
+    }
+        void checkPurelyImaginaryNumber() {
+            double n = getR();
+            if(n ==0){
+                System.out.println("The number is purely imaginary");
+            }
+            else {
+                System.out.println("The number is not purely imaginary");
+            }
+        } 
+    }
+
+
+
 public class ComplexNumbers {
+    
 public static void main(String[] args) {
-    System.out.println("Hi Pratish");
+    Scanner sc = new Scanner(System.in);
+    PurelyImaginary p1 = new PurelyImaginary(sc.nextDouble(),sc.nextDouble());
+    p1.setI();
+    
+  
+
 }
 }
