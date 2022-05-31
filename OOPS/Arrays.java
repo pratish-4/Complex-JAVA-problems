@@ -16,8 +16,6 @@ public class Arrays {
             if(arr[i]<0){
                 negcount ++;
             };
-            
-        
              }
              System.out.println(negcount);
          }

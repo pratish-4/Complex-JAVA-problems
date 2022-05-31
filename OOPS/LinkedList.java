@@ -16,7 +16,7 @@ public class LinkedList {
             head = obj;
         }
         else{
-            Node temp = head
+            Node temp = head;
             while(temp.next!=null){
                 temp=temp.next;
             }
